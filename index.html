@@ -4,10 +4,105 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>نور القرآن</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f5ef;
+      color: #222;
+      text-align: center;
+    }
+
+    .header {
+      background: #176b4d;
+      color: white;
+      padding: 35px 20px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 38px;
+    }
+
+    .header p {
+      font-size: 18px;
+      margin-top: 12px;
+    }
+
+    .content {
+      padding: 40px 20px;
+    }
+
+    .quran-box {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .quran-box h2 {
+      color: #176b4d;
+      font-size: 28px;
+    }
+
+    .quran-box p {
+      font-size: 19px;
+      line-height: 1.8;
+    }
+
+    button {
+      background: #176b4d;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #12563e;
+    }
+
+    .footer {
+      margin-top: 50px;
+      padding: 20px;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>نور القرآن</h1>
-  <p>مرحبًا بكم في تطبيق نور القرآن</p>
+
+  <div class="header">
+    <h1>نور القرآن</h1>
+    <p>كتاب الله هدى ونور</p>
+  </div>
+
+  <div class="content">
+
+    <div class="quran-box">
+      <h2>القرآن الكريم</h2>
+
+      <p>
+        ﴿إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ﴾
+      </p>
+
+      <button onclick="alert('سيتم إضافة القرآن الكريم والتلاوات والتفاسير في الخطوات القادمة بإذن الله')">
+        فتح القرآن
+      </button>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    نور القرآن — مشروع قرآني مفتوح للتطوير
+  </div>
+
 </body>
 </html>
