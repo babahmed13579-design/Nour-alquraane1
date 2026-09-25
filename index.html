@@ -6,6 +6,10 @@
   <title>نور القرآن</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -14,95 +18,187 @@
       text-align: center;
     }
 
-    .header {
-      background: #176b4d;
+    header {
+      background: #176b5b;
       color: white;
-      padding: 35px 20px;
+      padding: 28px 15px;
+      border-radius: 0 0 25px 25px;
     }
 
-    .header h1 {
+    header h1 {
       margin: 0;
-      font-size: 38px;
+      font-size: 34px;
     }
 
-    .header p {
-      font-size: 18px;
-      margin-top: 12px;
+    header p {
+      margin: 10px 0 0;
+      font-size: 17px;
     }
 
-    .content {
-      padding: 40px 20px;
+    .container {
+      max-width: 700px;
+      margin: 25px auto;
+      padding: 0 15px;
     }
 
-    .quran-box {
-      max-width: 600px;
-      margin: auto;
+    .welcome {
       background: white;
-      padding: 30px;
-      border-radius: 15px;
+      padding: 25px;
+      border-radius: 20px;
       box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
     }
 
-    .quran-box h2 {
-      color: #176b4d;
-      font-size: 28px;
+    .welcome h2 {
+      color: #176b5b;
+      margin-top: 0;
     }
 
-    .quran-box p {
-      font-size: 19px;
-      line-height: 1.8;
+    .buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
     }
 
     button {
-      background: #176b4d;
-      color: white;
       border: none;
-      padding: 14px 30px;
-      border-radius: 10px;
-      font-size: 18px;
+      border-radius: 15px;
+      padding: 18px 10px;
+      font-size: 17px;
       cursor: pointer;
-      margin-top: 15px;
+      background: #176b5b;
+      color: white;
     }
 
     button:hover {
-      background: #12563e;
+      opacity: 0.9;
     }
 
-    .footer {
-      margin-top: 50px;
+    .content {
+      display: none;
+      background: white;
+      margin-top: 20px;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      line-height: 2;
+      font-size: 18px;
+    }
+
+    .content h2 {
+      color: #176b5b;
+    }
+
+    footer {
+      margin-top: 35px;
       padding: 20px;
       color: #666;
       font-size: 14px;
+    }
+
+    @media (max-width: 500px) {
+      .buttons {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="header">
+  <header>
     <h1>نور القرآن</h1>
-    <p>كتاب الله هدى ونور</p>
-  </div>
+    <p>خدمة للقرآن الكريم وعلومه</p>
+  </header>
 
-  <div class="content">
+  <div class="container">
 
-    <div class="quran-box">
-      <h2>القرآن الكريم</h2>
-
+    <div class="welcome">
+      <h2>مرحبًا بكم في نور القرآن</h2>
       <p>
-        ﴿إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ﴾
+        قال الله تعالى:
+        <br>
+        <strong>﴿إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ﴾</strong>
       </p>
+      <p>
+        نسعى لتقديم القرآن الكريم وعلومه بطريقة سهلة وميسرة.
+      </p>
+    </div>
 
-      <button onclick="alert('سيتم إضافة القرآن الكريم والتلاوات والتفاسير في الخطوات القادمة بإذن الله')">
-        فتح القرآن
+    <div class="buttons">
+      <button onclick="showContent('quran')">
+        📖 القرآن الكريم
       </button>
+
+      <button onclick="showContent('tafsir')">
+        📚 التفسير
+      </button>
+
+      <button onclick="showContent('hadith')">
+        🕌 الحديث
+      </button>
+
+      <button onclick="showContent('lectures')">
+        🎧 المحاضرات
+      </button>
+    </div>
+
+    <div id="quran" class="content">
+      <h2>📖 القرآن الكريم</h2>
+      <p>
+        هنا سيكون قسم القرآن الكريم، وسنضيف إليه السور والآيات
+        في الخطوات القادمة.
+      </p>
+    </div>
+
+    <div id="tafsir" class="content">
+      <h2>📚 التفسير</h2>
+      <p>
+        هنا سيكون قسم تفسير القرآن الكريم، ويمكن لاحقًا إضافة
+        التفاسير والبحث في الآيات.
+      </p>
+    </div>
+
+    <div id="hadith" class="content">
+      <h2>🕌 الحديث</h2>
+      <p>
+        هنا سيكون قسم الحديث النبوي الشريف، وسنضيف إليه
+        الأحاديث والمصادر في المراحل القادمة.
+      </p>
+    </div>
+
+    <div id="lectures" class="content">
+      <h2>🎧 المحاضرات</h2>
+      <p>
+        هنا سيكون قسم المحاضرات والدروس الصوتية والمرئية.
+      </p>
     </div>
 
   </div>
 
-  <div class="footer">
-    نور القرآن — مشروع قرآني مفتوح للتطوير
-  </div>
+  <footer>
+    نور القرآن © 2026
+  </footer>
+
+  <script>
+    function showContent(id) {
+      const contents = document.querySelectorAll('.content');
+
+      contents.forEach(function(content) {
+        content.style.display = 'none';
+      });
+
+      document.getElementById(id).style.display = 'block';
+
+      document.getElementById(id).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  </script>
 
 </body>
 </html>
