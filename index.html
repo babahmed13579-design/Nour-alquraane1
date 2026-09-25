@@ -6,10 +6,6 @@
   <title>نور القرآن</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -19,186 +15,66 @@
     }
 
     header {
-      background: #176b5b;
+      background: #166534;
       color: white;
-      padding: 28px 15px;
-      border-radius: 0 0 25px 25px;
+      padding: 25px 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
 
     header h1 {
       margin: 0;
-      font-size: 34px;
+      font-size: 32px;
     }
 
     header p {
-      margin: 10px 0 0;
+      margin: 8px 0 0;
       font-size: 17px;
     }
 
     .container {
       max-width: 700px;
-      margin: 25px auto;
+      margin: 30px auto;
       padding: 0 15px;
     }
 
-    .welcome {
+    .card {
       background: white;
+      border-radius: 15px;
       padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
       margin-bottom: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
     }
 
-    .welcome h2 {
-      color: #176b5b;
+    .card h2 {
+      color: #166534;
       margin-top: 0;
     }
 
-    .buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
     button {
-      border: none;
-      border-radius: 15px;
-      padding: 18px 10px;
-      font-size: 17px;
-      cursor: pointer;
-      background: #176b5b;
+      background: #166534;
       color: white;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      margin: 8px;
     }
 
     button:hover {
-      opacity: 0.9;
+      background: #14532d;
     }
 
-    .content {
+    #ayah {
       display: none;
-      background: white;
-      margin-top: 20px;
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      font-size: 24px;
       line-height: 2;
-      font-size: 18px;
-    }
-
-    .content h2 {
-      color: #176b5b;
+      margin-top: 20px;
+      color: #333;
     }
 
     footer {
-      margin-top: 35px;
+      margin-top: 40px;
       padding: 20px;
-      color: #666;
-      font-size: 14px;
-    }
-
-    @media (max-width: 500px) {
-      .buttons {
-        grid-template-columns: 1fr;
-      }
-
-      header h1 {
-        font-size: 28px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <h1>نور القرآن</h1>
-    <p>خدمة للقرآن الكريم وعلومه</p>
-  </header>
-
-  <div class="container">
-
-    <div class="welcome">
-      <h2>مرحبًا بكم في نور القرآن</h2>
-      <p>
-        قال الله تعالى:
-        <br>
-        <strong>﴿إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ﴾</strong>
-      </p>
-      <p>
-        نسعى لتقديم القرآن الكريم وعلومه بطريقة سهلة وميسرة.
-      </p>
-    </div>
-
-    <div class="buttons">
-      <button onclick="showContent('quran')">
-        📖 القرآن الكريم
-      </button>
-
-      <button onclick="showContent('tafsir')">
-        📚 التفسير
-      </button>
-
-      <button onclick="showContent('hadith')">
-        🕌 الحديث
-      </button>
-
-      <button onclick="showContent('lectures')">
-        🎧 المحاضرات
-      </button>
-    </div>
-
-    <div id="quran" class="content">
-      <h2>📖 القرآن الكريم</h2>
-      <p>
-        هنا سيكون قسم القرآن الكريم، وسنضيف إليه السور والآيات
-        في الخطوات القادمة.
-      </p>
-    </div>
-
-    <div id="tafsir" class="content">
-      <h2>📚 التفسير</h2>
-      <p>
-        هنا سيكون قسم تفسير القرآن الكريم، ويمكن لاحقًا إضافة
-        التفاسير والبحث في الآيات.
-      </p>
-    </div>
-
-    <div id="hadith" class="content">
-      <h2>🕌 الحديث</h2>
-      <p>
-        هنا سيكون قسم الحديث النبوي الشريف، وسنضيف إليه
-        الأحاديث والمصادر في المراحل القادمة.
-      </p>
-    </div>
-
-    <div id="lectures" class="content">
-      <h2>🎧 المحاضرات</h2>
-      <p>
-        هنا سيكون قسم المحاضرات والدروس الصوتية والمرئية.
-      </p>
-    </div>
-
-  </div>
-
-  <footer>
-    نور القرآن © 2026
-  </footer>
-
-  <script>
-    function showContent(id) {
-      const contents = document.querySelectorAll('.content');
-
-      contents.forEach(function(content) {
-        content.style.display = 'none';
-      });
-
-      document.getElementById(id).style.display = 'block';
-
-      document.getElementById(id).scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  </script>
-
-</body>
-</html>
+      background: #166534;
+      color: white;
