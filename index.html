@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>نور القرآن</title>
-
+  
   <style>
     * {
       box-sizing: border-box;
@@ -12,263 +12,52 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f5ef;
+      padding: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background-color: #f9f9f9;
       color: #222;
-      text-align: center;
+      line-height: 1.8;
     }
 
     header {
-      background: #176b4d;
+      background-color: #0b3d2e;
       color: white;
-      padding: 22px 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      text-align: center;
+      padding: 25px 15px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 30px;
+      font-size: 32px;
     }
 
-    header p {
-      margin: 8px 0 0;
-      font-size: 16px;
-    }
-
-    .container {
-      max-width: 700px;
-      margin: 25px auto;
+    main {
+      max-width: 900px;
+      margin: 30px auto;
       padding: 0 15px;
     }
 
-    .card {
+    .box {
       background: white;
-      border-radius: 15px;
-      padding: 22px;
-      margin-bottom: 18px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    }
-
-    .card h2 {
-      margin-top: 0;
-      color: #176b4d;
-    }
-
-    select,
-    input,
-    button {
-      width: 100%;
-      padding: 13px;
-      margin-top: 10px;
       border-radius: 10px;
-      font-size: 16px;
-    }
-
-    select,
-    input {
-      border: 1px solid #ccc;
-      background: #fff;
-    }
-
-    button {
-      border: none;
-      background: #176b4d;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    button:hover {
-      background: #12543d;
-    }
-
-    .ayah {
-      font-size: 24px;
-      line-height: 2;
-      margin: 20px 0;
-      color: #333;
-    }
-
-    .number {
-      display: inline-block;
-      background: #176b4d;
-      color: white;
-      border-radius: 50%;
-      width: 32px;
-      height: 32px;
-      line-height: 32px;
-      font-size: 14px;
-      margin-left: 8px;
-    }
-
-    .message {
-      color: #666;
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    footer {
-      margin-top: 35px;
       padding: 20px;
-      background: #176b4d;
-      color: white;
-      font-size: 14px;
-    }
-
-    .settings {
-      display: none;
-      margin-top: 15px;
-    }
-
-    .settings.show {
-      display: block;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 26px;
-      }
-
-      .ayah {
-        font-size: 21px;
-      }
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
     }
   </style>
 </head>
-
 <body>
 
   <header>
     <h1>نور القرآن</h1>
-    <p>رفيقك في تلاوة كتاب الله وتدبره</p>
+    <p>بسم الله الرحمن الرحيم</p>
   </header>
 
-  <main class="container">
-
-    <div class="card">
-      <h2>القرآن الكريم</h2>
-
-      <select id="surahSelect">
-        <option value="">اختر السورة</option>
-        <option value="الفاتحة">الفاتحة</option>
-        <option value="البقرة">البقرة</option>
-        <option value="آل عمران">آل عمران</option>
-        <option value="النساء">النساء</option>
-        <option value="المائدة">المائدة</option>
-        <option value="الأنعام">الأنعام</option>
-        <option value="الأعراف">الأعراف</option>
-        <option value="الأنفال">الأنفال</option>
-        <option value="التوبة">التوبة</option>
-        <option value="يونس">يونس</option>
-      </select>
-
-      <button onclick="showSurah()">فتح السورة</button>
+  <main>
+    <div class="box">
+      <h2>مرحبا بكم في نور القرآن</h2>
+      <p>هذا هو الأساس الصحيح للموقع. الآن يمكنك إضافة ما تريد داخله.</p>
     </div>
-
-    <div class="card">
-      <h2>آية اليوم</h2>
-
-      <div class="ayah">
-        <span class="number">1</span>
-        وَقُلْ رَبِّ زِدْنِي عِلْمًا
-      </div>
-
-      <p class="message">
-        اجعل القرآن نورًا لقلبك، ورفيقًا في طريقك إلى الله.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>البحث في القرآن</h2>
-
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="اكتب كلمة للبحث..."
-      >
-
-      <button onclick="searchQuran()">بحث</button>
-
-      <p id="searchResult" class="message"></p>
-    </div>
-
-    <div class="card">
-      <button onclick="toggleSettings()">
-        ⚙ الإعدادات
-      </button>
-
-      <div id="settings" class="settings">
-
-        <label for="fontSize">حجم الخط</label>
-
-        <select id="fontSize" onchange="changeFontSize()">
-          <option value="18px">صغير</option>
-          <option value="22px" selected>متوسط</option>
-          <option value="27px">كبير</option>
-          <option value="32px">كبير جدًا</option>
-        </select>
-
-        <button onclick="toggleTheme()">
-          تغيير المظهر
-        </button>
-
-      </div>
-    </div>
-
   </main>
-
-  <footer>
-    نور القرآن © 2026
-  </footer>
-
-  <script>
-    function showSurah() {
-      const surah = document.getElementById("surahSelect").value;
-
-      if (surah === "") {
-        alert("يرجى اختيار سورة أولًا");
-        return;
-      }
-
-      alert("تم اختيار سورة " + surah);
-    }
-
-    function searchQuran() {
-      const text = document.getElementById("searchInput").value.trim();
-      const result = document.getElementById("searchResult");
-
-      if (text === "") {
-        result.textContent = "اكتب كلمة للبحث أولًا.";
-        return;
-      }
-
-      result.textContent =
-        "تم البحث عن: " + text +
-        " — سيتم تطوير البحث القرآني المتقدم في الخطوة القادمة.";
-    }
-
-    function toggleSettings() {
-      const settings = document.getElementById("settings");
-      settings.classList.toggle("show");
-    }
-
-    function changeFontSize() {
-      const size = document.getElementById("fontSize").value;
-      document.querySelector(".ayah").style.fontSize = size;
-    }
-
-    function toggleTheme() {
-      const body = document.body;
-
-      if (body.style.backgroundColor === "rgb(34, 34, 34)") {
-        body.style.backgroundColor = "#f7f5ef";
-        body.style.color = "#222";
-      } else {
-        body.style.backgroundColor = "#222";
-        body.style.color = "#eee";
-      }
-    }
-  </script>
 
 </body>
 </html>
