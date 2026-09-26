@@ -5,23 +5,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>نور القرآن 1</title>
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: Tahoma, sans-serif; background: #f5f5f5; line-height: 1.8; }
-header { background: #0b3d2e; color: #fff; padding: 20px; text-align: center; }
-.container { max-width: 800px; margin: 20px auto; padding: 15px; }
-.card { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Tahoma,sans-serif;background:#f0f2f0;line-height:1.8}
+header{background:#0b3d2e;color:#fff;padding:25px 15px;text-align:center}
+header h1{font-size:28px}
+header p{opacity:.8;margin-top:5px}
+.container{max-width:900px;margin:20px auto;padding:0 15px}
+.search{width:100%;padding:14px;border-radius:10px;border:1px solid #ccc;font-size:16px;margin-bottom:15px}
+.player{background:white;padding:15px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.1);margin-bottom:20px;text-align:center;position:sticky;top:10px;z-index:10}
+.player audio{width:100%;margin-top:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.surah{background:white;padding:15px;border-radius:10px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;box-shadow:0 1px 4px rgba(0,0,0,.08);transition:.2s}
+.surah:hover{transform:translateY(-2px);background:#e8f5e9}
+.surah span.num{background:#0b3d2e;color:#fff;width:35px;height:35px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:14px}
 </style>
 </head>
 <body>
 <header>
 <h1>نور القرآن 1</h1>
-<p>تصميم babahmed13579</p>
+<p>القرآن الكريم استماع وقراءة - تصميم babahmed13579</p>
 </header>
 <div class="container">
-<div class="card">
-<h2>بسم الله الرحمن الرحيم</h2>
-<p>الموقع يعمل الآن ✅</p>
+<div class="player">
+<h3 id="nowPlaying">اختر سورة للاستماع</h3>
+<audio id="audio" controls></audio>
 </div>
+<input type="text" id="search" class="search" placeholder="ابحث عن سورة... الفاتحة، البقرة...">
+<div class="grid" id="list"></div>
 </div>
+<script>
+const surahs=["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود","يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه","الأنبياء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","يس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثر","العصر","الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
+const listDiv=document.getElementById('list');
+const audio=document.getElementById('audio');
+const nowPlaying=document.getElementById('nowPlaying');
+const search=document.getElementById('search');
+function render(filter=""){
+listDiv.innerHTML="";
+surahs.forEach((name,i)=>{
+if(name.includes(filter)){
+let num=i+1;
+let div=document.createElement('div');
+div.className="surah";
+div.innerHTML=`<div><span class="num">${num}</span> <strong style="margin-right:10px">${name}</strong></div><span>▶</span>`;
+div.onclick=()=>{
+let id=String(num).padStart(3,'0');
+audio.src=`https://cdn.islamic.network/quran/audio/128/ar.alafasy/${id}.mp3`;
+audio.play();
+nowPlaying.textContent=`الآن: سورة ${name}`;
+window.scrollTo({top:0,behavior:'smooth'});
+};
+listDiv.appendChild(div);
+}
+});
+}
+search.addEventListener('input',()=>render(search.value));
+render();
+</script>
 </body>
 </html>
